@@ -9,7 +9,6 @@ pipeline {
                 sh '''
                    mvn package
                 '''
-                buildDockerImage(semVer: true)
             }
         }
     }
