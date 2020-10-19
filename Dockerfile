@@ -5,7 +5,7 @@ RUN echo "original date `date`" && ln -sf /usr/share/zoneinfo/Europe/Berlin /etc
 ENV TZ=Europe/Berlin
 USER jboss
 
-COPY *.jar /app.jar
+COPY target/*.jar /app.jar
 
 ENTRYPOINT ["sh", "-c", "java -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -XX:MaxRAMFraction=1 ${JAVA_OPTS} ${JAVA_PROXY_OPTS} -Djava.security.egd=file:/dev/./urandom -jar /app.jar "]
 
